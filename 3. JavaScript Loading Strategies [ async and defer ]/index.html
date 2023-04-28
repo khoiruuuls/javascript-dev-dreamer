@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="main.js"></script>
+	<!-- 
+		sync make html actually being blocked from loading 
+		once the file is downloaded it then excecutes and 
+		again our html is still blocked. once our files have been downloaded
+		and executed our passing resumes until the document is ready
+	-->
+	<script src="short.js" async></script>
+	<!-- 
+		async make our javascript file downloads at the same time
+		as our html file its not being blocked and then once our file are 
+		downloaded they execute or run straight away and during that phase 
+		our html is blocked from being passed as you can see, but once our 
+		file have been executed then we resume the passing of our html 
+		until the file is ready. so, the difference between async and loading
+		in our files plainly is that with async our javascript files download
+		at the same time as our html its only during the execution phase of 
+		our javascript that our html is blocked. so, already then we can see 
+		that there's advantage using async over plainly loading in our files
+		if we take a look at our files " long " and " short ".
+		short.js being the smaller file will probably load and execute first 
+		here another important thing to know about async. 
+		async works on a load first run first basis so soon as the script 
+		is downloaded it will execute or run straigh away. 
+
+		====================================
+			ASYNC DOESNT CARE ABOUT ORDER
+		====================================
+
+		good use case for async would be something like an analysis tool such as
+		google analytics. such a file has not added value for the frontend user so 
+		async will be ideal for performance and security reasons 
+	-->
+	<script src="long.js" defer></script>
+	<!-- 
+		defer just like async, our files are downloaded at the same time as the 
+		passing of our html. the loading of html is not being blocked and the 
+		difference with defer the execution  of our file is actually deferred hence
+		the name defer until after our html has been passed and is ready. 
+		once is ready our javascript file executes. so, our html is never blocked. 
+		its free continue passing until its ready and the other key difference would 
+		defer is that unlike async the relative order of our files is kept so even 
+		if short.js is smaller file, probably loads first because the order of our 
+		script has long js first once they're both downloaded then during execution 
+		process, long.js will be executed first and then short.js 
+
+		=========================================
+			DEFER RESPECTS THE RELATIVE ORDER
+		=========================================
+
+		this make defer the attribute of choice when scripts defend on each other to 
+		work and run 
+	-->
+</head>
+
+<body>
+	<h1>Loading Javascript</h1>
+
+	<img src="img/image.png" alt="">
+
+</body>
+
+</html>
